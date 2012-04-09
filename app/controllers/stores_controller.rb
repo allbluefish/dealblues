@@ -5,7 +5,7 @@ class StoresController < ApplicationController
     @stores = Store.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index_old.html.erb
       format.xml  { render :xml => @stores }
     end
   end
