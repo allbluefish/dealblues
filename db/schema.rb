@@ -10,7 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405083649) do
+ActiveRecord::Schema.define(:version => 20120408094751) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "deal_categoryships", :force => true do |t|
+    t.integer  "deal_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "deal_categoryships", ["category_id"], :name => "index_deal_categoryships_on_category_id"
+  add_index "deal_categoryships", ["deal_id"], :name => "index_deal_categoryships_on_deal_id"
 
   create_table "deals", :force => true do |t|
     t.string   "title"

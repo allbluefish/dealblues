@@ -4,10 +4,10 @@ class CreateDealCategoryships < ActiveRecord::Migration
       t.integer :deal_id
       t.integer :category_id
 
-      add_index :deal_categoryships, :deal_id
-      add_index :deal_categoryships, :category_id
       t.timestamps
     end
+    add_index :deal_categoryships, :deal_id
+    add_index :deal_categoryships, :category_id
   end
 
   def self.down
