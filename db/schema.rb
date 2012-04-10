@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120408094751) do
     t.date     "pubDate"
     t.text     "description"
     t.text     "description_pure"
+    t.string   "source"
     t.string   "location"
     t.string   "image"
     t.integer  "store_id"
