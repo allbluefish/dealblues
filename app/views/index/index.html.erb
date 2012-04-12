@@ -10,7 +10,7 @@
 
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="<%= @home%>"><a href="#">Home</a></li>
+          <li class="<%= @home %>"><a href="#">Home</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
@@ -92,7 +92,7 @@
 
   <div class="row-fluid">
     <div class="span2">
-      <div class="" style="padding: 8px 0;">
+      <div class="well" style="padding: 8px 0;">
         <ul class="nav nav-list">
           <li class="nav-header">
             Hot Products
@@ -105,45 +105,52 @@
           </li>
           ...
         </ul>
+      </div>
+      <div class="well" style="padding: 8px 0;">
         <ul class="nav nav-list">
           <li class="nav-header">Hot Categories</li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li class="nav-header">Hot Brands</li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li class="nav-header">Hot Stores</li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <% @categories.each do |c, i| %>
+              <li><a href="#" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a></li>
+          <% end %>
+          <!--<li><a href="">+more</a></li>-->
         </ul>
       </div>
+      <div class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="nav-header">Hot Stores</li>
+          <% @stores.each do |s|%>
+              <li><a href="#" title="<%= s.name %>"><%= truncate(s.name, :length => 18, :separator => ' ') %></a></li>
+          <% end %>
+        </ul>
+      </div>
+      <ul class="nav nav-list">
+        <li class="nav-header">Hot Brands</li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
     </div>
     <div class="span8 top">
       <% @deals.each do |d| %>
-
           <dl class="dl-horizontal">
             <div class="thumbnail">
-            <dt  style="width:120px; height:120px; overflow:hidden;">
-              <img src="<%= d.image %>" width="130" height="130" alt="" title="" border="0">
-            </dt>
-            <dd style="padding-bottom: 10px;">
-              <h3>Heading</h3>
+              <dt style="width:120px; height:120px; overflow:hidden;">
+                <img src="<%= d.image %>" width="130" height="130" alt="" title="" border="0">
+              </dt>
+              <dd style="padding-bottom: 10px;">
+                <h4><a href=""><%= truncate(d.title, :length => 60, :separator => ' ') %></a></h4>
 
-              <p><%= truncate(d.description_pure, :length => 300, :separator => '......') %></p>
+                <p><%= truncate(d.description_pure, :length => 300, :separator => ' ') %></p>
 
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </dd>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+              </dd>
             </div>
           </dl>
       <% end %>
-      <span class="pull-right"> <%= will_paginate @deals,:class => 'digg_pagination' %></span>
+      <span class="pull-right"> <%= will_paginate @deals, :class => 'digg_pagination' %></span>
     </div>
     <div class="span2">
       <div class="well" style="padding: 8px 0;">
