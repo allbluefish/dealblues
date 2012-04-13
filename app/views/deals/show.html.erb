@@ -1,0 +1,62 @@
+<div class="row-fluid">
+
+  <div class="span10 top">
+        <div class="thumbnail" style="margin-bottom: 8px;">
+          <dl class="dl-horizontal">
+            <dt style="width:120px; height:120px; overflow:hidden;">
+              <img src="<%= @deal.image %>" alt="" title="" border="0">
+            </dt>
+            <dd>
+              <h4><a href=""><%= @deal.title %></a></h4>
+
+              <p><%= @deal.description %></p>
+
+              <p><a class="btn" href="<%= @deal.location %>" target="_blank">View details &raquo;</a></p>
+            </dd>
+          </dl>
+        </div>
+  </div>
+
+  <div class="span2">
+    <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          Hot Products
+        </li>
+        <li class="active">
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Library</a>
+        </li>
+        ...
+      </ul>
+    </div>
+    <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">Hot Categories</li>
+        <% @categories.each do |c| %>
+            <li><a href="#" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a></li>
+        <% end %>
+        <!--<li><a href="">+more</a></li>-->
+      </ul>
+    </div>
+    <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">Hot Stores</li>
+        <% @stores.each do |s| %>
+            <li><a href="#" title="<%= s.name %>"><%= truncate(s.name, :length => 18, :separator => ' ') %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <ul class="unstyled thumbnail">
+      <li class="">Hot Brands</li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
+</div>
