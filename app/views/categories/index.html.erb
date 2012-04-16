@@ -1,76 +1,49 @@
-<div class="page-header">
-  <h1>Typography</h1>
-</div>
-
-<!-- Headings & Paragraph Copy -->
-<div class="row">
-
-  <div class="span4">
-    <div class="well">
-      <h1>h1. Heading 1</h1>
-
-      <h2>h2. Heading 2</h2>
-
-      <h3>h3. Heading 3</h3>
-      <h4>h4. Heading 4</h4>
-      <h5>h5. Heading 5</h5>
-      <h6>h6. Heading 6</h6>
+<div class="row-fluid">
+  <div class="span10 top">
+    <h2>All Categories</h2>
+    <% @abc.each do |abc| %>
+        <ul class="unstyled">
+          <li class="thumbnail">
+            <h3><%= abc.first %></h3>
+            <% @categories.each do |c| %>
+                <% if c.start_with(abc) %>
+                    <a href=""><%= c.name %></a>&nbsp;(<%= c.count %>)&nbsp;
+                <% end %>
+            <% end %>
+          </li>
+        </ul>
+    <% end %>
+  </div>
+  <div class="span2">
+    <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">Sidebar</li>
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
     </div>
-  </div>
-
-  <div class="span4">
-    <div class="thumbnail">
-    <dl class="dl-horizontal">
-    <dt>Description lists</dt>
-    <dd>A description list is perfect for defining terms.</dd>
-    <dt>Euismod</dt>
-    <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-    <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-    <dt>Malesuada porta</dt>
-    <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-    </dl>
+    <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">Sidebar</li>
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="nav-header">Sidebar</li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="nav-header">Sidebar</li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
     </div>
-  </div>
 
-  <div class="span4">
-    <h3>Example addresses</h3>
-    <address>
-      <strong>Twitter, Inc.</strong><br>
-      795 Folsom Ave, Suite 600<br>
-      San Francisco, CA 94107<br>
-      <abbr title="Phone">P:</abbr> (123) 456-7890
-    </address>
-    <address>
-      <strong>Full Name</strong><br>
-      <a href="mailto:#">first.last@gmail.com</a>
-    </address>
   </div>
-
 </div>
-
-<div class="row">
-  <div class="span4">
-
-    <dl>
-      <dt>Description lists</dt>
-      <dd>A description list is perfect for defining terms.</dd>
-      <dt>Euismod</dt>
-      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-      <dt>Malesuada porta</dt>
-      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-    </dl>
-  </div>
-  <div class="span8">
-
-    <dl class="dl-horizontal">
-      <dt>Description lists</dt>
-      <dd>A description list is perfect for defining terms.</dd>
-      <dt>Euismod</dt>
-      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-      <dt>Malesuada porta</dt>
-      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-    </dl>
-  </div>
-</div><!-- /row -->

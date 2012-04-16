@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120408094751) do
+ActiveRecord::Schema.define(:version => 20120413120200) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(:version => 20120408094751) do
   end
 
   add_index "deals", ["store_id"], :name => "index_deals_on_store_id"
+
+  create_table "spiders", :force => true do |t|
+    t.string   "site"
+    t.string   "rss_url"
+    t.integer  "today_count"
+    t.integer  "all_count"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stores", :force => true do |t|
     t.string   "name"

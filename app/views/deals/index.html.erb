@@ -45,20 +45,19 @@
     <% @deals.each do |d| %>
         <div class="thumbnail" style="margin-bottom: 8px;">
           <dl class="dl-horizontal">
-            <dt style="width:120px; height:120px; overflow:hidden;">
-              <img src="<%= d.image %>" width="130" height="130" alt="" title="" border="0">
+            <dt class="imgbox">
+              <img src="<%= d.image %>" alt="" title="" class="image_list">
             </dt>
-            <dd>
-              <h4><a href=""><%= truncate(d.title, :length => 60, :separator => ' ') %></a></h4>
+            <dd class="textbox">
+              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 60, :separator => ' ') %></a></h4>
 
               <p><%= truncate(d.description_pure, :length => 300, :separator => ' ') %></p>
 
-              <p><a class="btn" href="<%= d.location%>" target="_blank">View details &raquo;</a></p>
+              <p><a class="btn" href="<%= d.location %>" target="_blank">View details &raquo;</a></p>
             </dd>
           </dl>
         </div>
     <% end %>
     <%= will_paginate @deals, :class => 'digg_pagination pull-right' %>
-  </div>
   </div>
 </div>

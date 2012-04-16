@@ -1,6 +1,10 @@
 Dealblues::Application.routes.draw do
+
+  match 'deals/hot' => 'deals#hot'
+
   resources :stores
   resources :deals
+  resources :spiders
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

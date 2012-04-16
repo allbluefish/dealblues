@@ -10,6 +10,8 @@ gem 'mysql'
 gem 'will_paginate', '~> 3.0'
 
 
+gem 'nokogiri'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

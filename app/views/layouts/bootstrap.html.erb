@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Dealblues</title>
-  <%= stylesheet_link_tag "docs", "bootstrap.min", "pagination" %>
+  <%= stylesheet_link_tag "docs", "bootstrap.min", "pagination", "dealblues" %>
   <%= javascript_include_tag "jquery", "bootstrap.min" %>
   <%= csrf_meta_tag %>
 </head>
@@ -67,12 +67,12 @@
 
     <p class="lead">every deal is so blue :)</p>
     <ul class="nav nav-tabs">
-      <li class="<%= @home%>">
+      <li class="<%= @home %>">
         <a href="/">Today</a>
       </li>
-      <li class="<%= @all%>"><a href="/deals">All</a></li>
-      <li><a href="#">Hot</a></li>
-      <li><a href="#">Category</a></li>
+      <li class="<%= @all %>"><a href="/deals">All</a></li>
+      <li class="<%= @hot %>"><a href="/deals/hot">Hot</a></li>
+      <li class="<%= @category %>"><a href="/categories">Category</a></li>
       <li><a href="#">Store</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle"

@@ -1,0 +1,32 @@
+<div class="row-fluid">
+  <div class="span12 top">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>site</th>
+        <th>rss_url</th>
+        <th>today_count</th>
+        <th>all_count</th>
+        <th>status</th>
+        <th>operate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @spiders.each_with_index do |s,i| %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= s.site %></td>
+            <td><%= s.rss_url %></td>
+            <td><%= s.today_count %></td>
+            <td><%= s.all_count %></td>
+            <td><%= s.show_status %></td>
+            <td><a href="/spiders/clutch/<%= s.id%>">抓取</a></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>

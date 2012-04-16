@@ -31,8 +31,8 @@
         <% end %>
       </ul>
     </div>
-    <ul class="nav nav-list">
-      <li class="nav-header">Hot Brands</li>
+    <ul class="unstyled thumbnail">
+      <li class="">Hot Brands</li>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
@@ -41,7 +41,7 @@
       <li><a href="#">Link</a></li>
     </ul>
   </div>
-  <div class="span8 top">
+  <div class="span10 top">
     <% @deals.each do |d| %>
         <div class="thumbnail" style="margin-bottom: 8px;">
           <dl class="dl-horizontal">
@@ -59,37 +59,5 @@
         </div>
     <% end %>
     <%= will_paginate @deals, :class => 'digg_pagination pull-right' %>
-  </div>
-  <div class="span2">
-    <div class="well" style="padding: 8px 0;">
-      <ul class="nav nav-list">
-        <li class="nav-header">Sidebar</li>
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-    </div>
-    <div class="well" style="padding: 8px 0;">
-      <ul class="nav nav-list">
-        <li class="nav-header">Sidebar</li>
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="nav-header">Sidebar</li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="nav-header">Sidebar</li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-    </div>
-
   </div>
 </div>
