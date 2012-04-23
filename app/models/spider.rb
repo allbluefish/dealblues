@@ -13,8 +13,16 @@ class Spider < ActiveRecord::Base
     get_rss_deal(doc)
   end
 
-  def get_rss_deal(doc)
+  #根据节点名抓取该节点下的内容
+  def get_node(doc, xpath)
+    items = Array.new
+    doc.xpath(xpath).each do |link|
+      items.push(link)
+    end
+    items
+  end
 
+  def get_rss_deal(doc)
     items = get_node(doc, '//item')
     deals = Deal.order("pubDate DESC").find_all_by_source(site)
     count = deals.count
@@ -31,27 +39,17 @@ class Spider < ActiveRecord::Base
 
   end
 
-  def get_node(doc, xpath)
-    items = Array.new
-    doc.xpath(xpath).each do |link|
-      items.push(link)
-    end
-    items
-  end
 
   def save_deal(item)
     description = item.xpath('description').inner_html
     # 剔除 description 中无用的字符串
 
-    description_no_html = description.gsub(/<\/?.*?>/, '').gsub('Get this Deal', '').gsub('&nbsp;', '')
-
-    #get_text = description.xpath('//a').inner_text
+    button_text = description.xpath('//a').inner_text
+    description_no_html = description.gsub(/<\/?.*?>/, '').gsub(button_text, '').gsub('&nbsp;', '')
 
 
     store_name = description.split('Store:</b>')[1].split(/<br\s*\/?>/i)[0].strip
-    store = Store.find_by_name(store_name)
-    Store.new(:name => store_name).save if store.nil?
-    store = Store.find_by_name(store_name)
+    store = get_store(store_name)
 
     description_doc = Nokogiri::HTML.parse(description)
     img = description_doc.xpath('//img/@src').inner_text
@@ -65,6 +63,19 @@ class Spider < ActiveRecord::Base
     deal = Deal.new(:title => title, :description_pure => description_no_html.strip, :description => description,
                     :pubDate => date, :location => link.strip, :image => img, :source => site)
 
+    get_categories(deal, item)
+
+    store.deals << deal
+    store.save
+  end
+
+  def get_store(store_name)
+    store = Store.find_by_name(store_name)
+    Store.new(:name => store_name).save if store.nil?
+    Store.find_by_name(store_name)
+  end
+
+  def get_categories(deal, item)
     categories = item.xpath('category')
     categories.each do |c|
       category_name = c.inner_html.strip
@@ -75,9 +86,6 @@ class Spider < ActiveRecord::Base
       count = c_new.count
       c_new.update_attribute('count', count + 1)
     end
-
-    store.deals << deal
-    store.save
   end
 
 end

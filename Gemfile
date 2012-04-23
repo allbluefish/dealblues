@@ -9,6 +9,7 @@ gem 'mysql'
 
 gem 'will_paginate', '~> 3.0'
 
+gem "rufus-scheduler", "~> 2.0.16"
 
 gem 'nokogiri'
 
