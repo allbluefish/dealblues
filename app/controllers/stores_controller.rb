@@ -1,8 +1,12 @@
 class StoresController < ApplicationController
   # GET /stores
   # GET /stores.xml
+  layout 'bootstrap'
   def index
-    @stores = Store.all
+    @abc = ['Aa','Bb','Cc','Dd','Ee','Ff','Gg','Hh','Ii','Jj','Kk','Ll','Mm',
+           'Nn','Oo','Pp','Qq','Rr','Ss','Tt','Uu','Vv','Ww','Xx','Yy','Zz']
+    @store = 'active'
+    @stores = Store.order('name').all
 
     respond_to do |format|
       format.html # index_old.html.erb

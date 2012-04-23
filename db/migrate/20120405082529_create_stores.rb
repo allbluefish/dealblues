@@ -5,6 +5,7 @@ class CreateStores < ActiveRecord::Migration
       t.text :detail
       t.text :location
       t.string :image
+      t.integer :count
 
       t.timestamps
     end
