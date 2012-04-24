@@ -2,16 +2,17 @@ class DealTaker < Spider
   # www.dealtaker.com
   def save_deal(item)
       description = item.xpath('description').inner_html
-      # 剔除 description 中无用的字符串
 
-      button_text = description.xpath('//a').inner_text
+      description_doc = Nokogiri::HTML.parse(description)
+      # 剔除 description 中无用的字符串
+      button_text = description_doc.xpath('//a').inner_text
+
       description_no_html = description.gsub(/<\/?.*?>/, '').gsub(button_text, '').gsub('&nbsp;', '')
 
 
       store_name = description.split('Store:</b>')[1].split(/<br\s*\/?>/i)[0].strip
       store = get_store(store_name)
 
-      description_doc = Nokogiri::HTML.parse(description)
       img = description_doc.xpath('//img/@src').inner_text
 
       title = item.xpath('title').inner_text

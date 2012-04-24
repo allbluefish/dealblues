@@ -6,6 +6,7 @@ class CreateSpiders < ActiveRecord::Migration
       t.integer :today_count
       t.integer :all_count
       t.integer :status
+      t.string :type
       t.timestamps
     end
   end

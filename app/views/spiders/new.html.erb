@@ -1,0 +1,50 @@
+<div class="row-fluid">
+  <div class="span12 top">
+    <form class="form-horizontal" action="/spiders" method="POST">
+      <fieldset>
+        <legend>New Spider Site</legend>
+        <div class="control-group">
+          <label class="control-label" for="focusedInput">Site</label>
+
+          <div class="controls">
+            <input class="input-xlarge" type="text" id="1" name="spider[site]">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="focusedInput">Rss Url</label>
+
+          <div class="controls">
+            <input class="input-xlarge" type="text" id="2" name="spider[rss_url]">
+          </div>
+        </div>
+
+
+        <div class="control-group">
+          <label class="control-label" for="select01">Status</label>
+
+          <div class="controls">
+            <select id="select1" name="spider[status]">
+              <option value="1">in-use</option>
+              <option value="0">non-use</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="select02">Type</label>
+
+          <div class="controls">
+            <select id="select02" name="this_type">
+              <option value="1">dealtaker.com</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button class="btn">Cancel</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

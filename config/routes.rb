@@ -6,6 +6,10 @@ Dealblues::Application.routes.draw do
   resources :deals
   resources :spiders
 
+  resources :categories do
+    get 'deals', :on => :member
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

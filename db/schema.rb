@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20120413120200) do
     t.integer  "today_count"
     t.integer  "all_count"
     t.integer  "status"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20120413120200) do
     t.text     "detail"
     t.text     "location"
     t.string   "image"
+    t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
