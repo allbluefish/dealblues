@@ -11,7 +11,6 @@
         <li>
           <a href="#">Library</a>
         </li>
-        ...
       </ul>
     </div>
     <div class="well" style="padding: 8px 0;">
@@ -20,7 +19,6 @@
         <% @categories.each do |c| %>
             <li><a href="#" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a></li>
         <% end %>
-        <!--<li><a href="">+more</a></li>-->
       </ul>
     </div>
     <div class="well" style="padding: 8px 0;">
@@ -31,15 +29,6 @@
         <% end %>
       </ul>
     </div>
-    <ul class="nav nav-list">
-      <li class="nav-header">Hot Brands</li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
   </div>
   <div class="span8 top">
     <% @deals.each do |d| %>
@@ -61,35 +50,7 @@
     <%= will_paginate @deals, :class => 'digg_pagination pull-right' %>
   </div>
   <div class="span2">
-    <div class="well" style="padding: 8px 0;">
-      <ul class="nav nav-list">
-        <li class="nav-header">Sidebar</li>
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-    </div>
-    <div class="well" style="padding: 8px 0;">
-      <ul class="nav nav-list">
-        <li class="nav-header">Sidebar</li>
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="nav-header">Sidebar</li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="nav-header">Sidebar</li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-    </div>
+
 
   </div>
 </div>

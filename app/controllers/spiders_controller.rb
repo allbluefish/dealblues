@@ -9,8 +9,10 @@ class SpidersController < ApplicationController
     spider = Spider.find(params[:id])
 
     spider.clutch
-    #deal = Deal.find(58)
-    #p deal.categories.size
+
+    flash[:notice] = "Data was successfully caught."
+
+    redirect_to :action => "index"
   end
 
   def new

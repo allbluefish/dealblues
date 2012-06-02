@@ -1,5 +1,8 @@
 <div class="row-fluid">
   <div class="span12 top">
+    <% unless flash[:notice].nil?  %>
+        <span class="label label-success"><%= flash[:notice] %></span>
+    <% end %>
     <table class="table table-striped">
       <thead>
       <tr>
@@ -13,7 +16,7 @@
       </tr>
       </thead>
       <tbody>
-      <% @spiders.each_with_index do |s,i| %>
+      <% @spiders.each_with_index do |s, i| %>
           <tr>
             <td><%= i+1 %></td>
             <td><%= s.site %></td>
@@ -21,7 +24,7 @@
             <td><%= s.today_count %></td>
             <td><%= s.all_count %></td>
             <td><%= s.show_status %></td>
-            <td><a href="/spiders/clutch/<%= s.id%>">抓取</a></td>
+            <td><a href="/spiders/clutch/<%= s.id %>">抓取</a></td>
           </tr>
       <% end %>
       </tbody>
