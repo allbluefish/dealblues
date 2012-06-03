@@ -3,7 +3,7 @@ class CreateDeals < ActiveRecord::Migration
     create_table :deals do |t|
       t.string :title
       t.string :link
-      t.date :pubDate
+      t.datetime :pubDate
       t.text :description
       t.text :description_pure
       t.string :source

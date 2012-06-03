@@ -1,27 +1,26 @@
-class DealOfDay
+# encoding: utf-8
+class DealOfDay < Spider
   def save_deal(item)
-    description = item.xpath('description').inner_html
 
-    description_doc = Nokogiri::HTML.parse(description)
-    # 剔除 description 中无用的字符串
-    button_text = description_doc.xpath('//a').inner_text
-
-    description_no_html = description.gsub(/<\/?.*?>/, '').gsub(button_text, '').gsub('&nbsp;', '')
-
-
-    store_name = description.split('Store:</b>')[1].split(/<br\s*\/?>/i)[0].strip
-    store = get_store(store_name)
-
-    img = description_doc.xpath('//img/@src').inner_text
+    link = item.xpath('link').inner_html.gsub(/\n/, '')
 
     title = item.xpath('title').inner_text
-    pub_date = item.xpath('pubDate').inner_text
-    #date = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-    date = Time.parse(pub_date, '%Y-%m-%d %H:%M:%S')
-    link = item.xpath('link').inner_text.split('?')[0]
+    title_split = title.split('–')
 
-    deal = Deal.new(:title => title, :description_pure => description_no_html.strip, :description => description,
-                    :pubDate => date, :location => link.strip, :image => img, :source => site)
+    store_name = title_split[0].strip.gsub('’'," ' ")
+    title_name = title_split[1].strip
+    store = get_store(store_name)
+
+    doc = Nokogiri::HTML.parse(open(link))
+
+    img = doc.css('div.entry-image img/@src')
+    des = doc.css('div#entry-content p').inner_text
+
+    pub_date = item.xpath('pubDate').inner_text
+    date = Time.parse(pub_date, '%Y-%m-%d %H:%M:%S')
+
+    deal = Deal.new(:title => title_name, :description_pure => des, :pubDate => date,
+                    :location => link.strip, :image => "http://dealofday.com#{img}", :source => site)
 
     get_categories(deal, item)
 

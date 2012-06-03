@@ -22,6 +22,7 @@ class Spider < ActiveRecord::Base
     items
   end
 
+  #解析抓取到的rss下的所有类容
   def get_rss_deal(doc)
     items = get_node(doc, '//item')
     deals = Deal.order("pubDate DESC").find_all_by_source(site)
@@ -39,12 +40,17 @@ class Spider < ActiveRecord::Base
 
   end
 
+  #判断该store是否为新增
   def get_store(store_name)
     store = Store.find_by_name(store_name)
-    Store.new(:name => store_name).save if store.nil?
-    Store.find_by_name(store_name)
+    Store.new(:name => store_name, :count => 0).save if store.nil?
+    s_new = Store.find_by_name(store_name)
+    count = s_new.count
+    s_new.update_attribute('count', count + 1)
+    s_new
   end
 
+  #保存一个新的分类或者将原分类的总数+1
   def get_categories(deal, item)
     categories = item.xpath('category')
     categories.each do |c|
