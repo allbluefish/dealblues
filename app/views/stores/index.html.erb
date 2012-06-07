@@ -7,7 +7,7 @@
             <h3><%= abc.first %></h3>
             <% @stores.each do |s| %>
                 <% if s.start_with(abc) %>
-                    <a href=""><%= s.name %></a>&nbsp;(<%= s.count %>)&nbsp;
+                    <a href="/stores/<%= s.id %>/deals"><%= s.name %></a>&nbsp;(<%= s.count %>)&nbsp;
                 <% end %>
             <% end %>
           </li>

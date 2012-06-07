@@ -26,6 +26,7 @@ class DealsController < ApplicationController
     @category = @deal.categories.first
     @categories = Category.order("count desc").limit(10).all
     @stores = Store.order("id desc").limit(10).all
+    render :layout => "bootstrap_no_bar"
   end
 
 end

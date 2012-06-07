@@ -88,5 +88,6 @@ class StoresController < ApplicationController
   def deals
     @store = Store.find(params[:id])
     @deals = @store.deals
+    render :layout => "bootstrap_no_bar"
   end
 end

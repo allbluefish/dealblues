@@ -8,7 +8,8 @@ class CategoriesController < ApplicationController
 
   def deals
     @category = Category.find(params[:id])
-    @deals = @category.deals
+    @deals = @category.deals.paginate(:page => params[:page], :per_page => 10).order("pubDate desc").all
+    render :layout => "bootstrap_no_bar"
   end
 
 end
