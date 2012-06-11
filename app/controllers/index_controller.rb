@@ -6,5 +6,6 @@ class IndexController < ApplicationController
     @stores = Store.order("id desc").limit(10).all
 
     @home = "active"
+
   end
 end
