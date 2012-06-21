@@ -5,13 +5,28 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+#gem 'mysql'
+
+# If you use a different database in development, hide it from Cloud Foundry
+group :development do
+  gem 'mysql'
+end
+
+# Rails 3.0 requires version less than 0.3 of mysql2 gem
+group :production do
+  gem 'mysql'
+  #gem 'mysql2', '< 0.3'
+end
 
 gem 'will_paginate', '~> 3.0'
 
 gem "rufus-scheduler", "~> 2.0.16"
 
 gem 'nokogiri'
+
+#gem "thin", "~> 1.3.1"
+
+#gem "eventmachine", "~> 0.12.10"
 
 # Use unicorn as the web server
 # gem 'unicorn'

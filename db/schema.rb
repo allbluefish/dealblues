@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20120413120200) do
   create_table "deals", :force => true do |t|
     t.string   "title"
     t.string   "link"
-    t.date     "pubDate"
+    t.datetime "pubDate"
     t.text     "description"
     t.text     "description_pure"
     t.string   "source"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20120413120200) do
     t.text     "detail"
     t.text     "location"
     t.string   "image"
-    t.integer  "count"
+    t.integer  "count",      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

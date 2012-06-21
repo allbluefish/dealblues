@@ -29,11 +29,11 @@ test:
   host: localhost
 
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   reconnect: false
   database: dealblues_production
   pool: 5
-  username: root
-  password:
+  username: blue
+  password: blue
   host: localhost
