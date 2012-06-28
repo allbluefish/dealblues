@@ -38,9 +38,9 @@
               <img src="<%= d.image %>" alt="" title="" class="image_list">
             </dt>
             <dd class="textbox">
-              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 60, :separator => ' ') %></a></h4>
+              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 55, :separator => ' ') %></a></h4>
 
-              <p><%= truncate(d.description_pure, :length => 300, :separator => ' ') %></p>
+              <p><%= truncate(d.description_pure, :length => 255, :separator => ' ') %></p>
                <p><i class="icon-time"></i>&nbsp;<%= time_ago_in_words(d.pubDate) %> ago - <span style="color: #369BD7;"><%= d.source%></span>
                  &nbsp;&nbsp;&nbsp;&nbsp;
                  <a class="btn btn-primary" href="<%= d.location %>" target="_blank">View details &raquo;</a></p>

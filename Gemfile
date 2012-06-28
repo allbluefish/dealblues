@@ -14,8 +14,8 @@ end
 
 # Rails 3.0 requires version less than 0.3 of mysql2 gem
 group :production do
-  gem 'mysql'
-  #gem 'mysql2', '< 0.3'
+  #gem 'mysql'
+  gem 'mysql2', '< 0.3'
 end
 
 gem 'will_paginate', '~> 3.0'

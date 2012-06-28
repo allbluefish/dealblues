@@ -26,10 +26,12 @@ class SpidersController < ApplicationController
   def create
     this_type = params[:this_type]
     @spider = DealTaker.new(params[:spider]) if this_type == '1'
+    @spider = DealOfDay.new(params[:spider]) if this_type == '2'
+    @spider = DealNews.new(params[:spider]) if this_type == '3'
 
     respond_to do |format|
       if @spider.save
-        format.html { redirect_to(:action => "show", :id => @spider.id, :notice => 'Store was successfully created.') }
+        format.html { redirect_to(:action => "show", :id => @spider.id, :notice => 'Spider was successfully created.') }
       end
     end
 

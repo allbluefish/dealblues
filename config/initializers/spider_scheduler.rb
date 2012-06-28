@@ -8,11 +8,11 @@ scheduler = Rufus::Scheduler.start_new
 
 #spider = Spider.new
 
-spiders = Spider.all
-scheduler.every '5s' do
-  spiders.each { |s|
-    #p "the site #{s.site} spider date at #{Time.now.strftime("%Y-%m-%d %H:%M")}"
-    #p s.site
-  }
-end
+#spiders = Spider.all
+#scheduler.every '5s' do
+#  spiders.each { |s|
+#    p "the site #{s.site} spider date at #{Time.now.strftime("%Y-%m-%d %H:%M")}"
+#    p s.site
+  #}
+#end
 

@@ -47,11 +47,11 @@ Dealblues::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  services = JSON.parse(ENV['VCAP_SERVICES'])
-  mysql_key = services.keys.select { |svc| svc =~ /mysql/i }.first
-  mysql = services[mysql_key].first['credentials']
-  mysql_conf = {:host => mysql['localhost'], :port => mysql['3306'],
-                :username => mysql['blue'], :password => mysql['blue']}
-  @@client = Mysql2::Client.new mysql_conf
+  #services = JSON.parse(ENV['VCAP_SERVICES'])
+  #mysql_key = services.keys.select { |svc| svc =~ /mysql/i }.first
+  #mysql = services[mysql_key].first['credentials']
+  #mysql_conf = {:host => mysql['localhost'], :port => mysql['3306'],
+  #              :username => mysql['blue'], :password => mysql['blue']}
+  #@@client = Mysql2::Client.new mysql_conf
 
 end

@@ -15,21 +15,21 @@
 </div>
 <div class="row-fluid">
   <div class="span2">
-      <div class="well" style="padding: 8px 0;">
-        <ul class="nav nav-list">
-          <li class="nav-header">
-            Hot Products
-          </li>
-          <li class="active">
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Library</a>
-          </li>
-          ...
-        </ul>
-      </div>
+    <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          Hot Products
+        </li>
+        <li class="active">
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Library</a>
+        </li>
+        ...
+      </ul>
     </div>
+  </div>
   <div class="span10 top">
     <% @deals.each do |d| %>
         <div class="thumbnail" style="margin-bottom: 8px;">
@@ -38,11 +38,14 @@
               <img src="<%= d.image %>" alt="" title="" class="image_list">
             </dt>
             <dd class="textbox">
-              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 60, :separator => ' ') %></a></h4>
+              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 55, :separator => ' ') %></a></h4>
 
-              <p><%= truncate(d.description_pure, :length => 300, :separator => ' ') %></p>
+              <p><%= truncate(d.description_pure, :length => 255, :separator => ' ') %></p>
 
-              <p><a class="btn" href="<%= d.location %>" target="_blank">View details &raquo;</a></p>
+              <p><i class="icon-time"></i>&nbsp;<%= time_ago_in_words(d.pubDate) %> ago -
+                <span style="color: #369BD7;"><%= d.source %></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-primary" href="<%= d.location %>" target="_blank">View details &raquo;</a></p>
             </dd>
           </dl>
         </div>
