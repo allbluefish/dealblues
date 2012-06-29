@@ -1,15 +1,17 @@
 <div class="row-fluid">
   <div class="span10 top">
-    <h2>All Categories</h2>
+    <h2>All Stores</h2>
     <% @abc.each do |abc| %>
         <ul class="unstyled">
           <li class="thumbnail">
             <h3><%= abc.first %></h3>
-            <% @stores.each do |s| %>
-                <% if s.start_with(abc) %>
-                    <a href="/stores/<%= s.id %>/deals"><%= s.name %></a>&nbsp;(<%= s.count %>)&nbsp;
-                <% end %>
-            <% end %>
+            <p style="margin: 5px 0;">
+              <% @stores.each do |s| %>
+                  <% if s.start_with(abc) %>
+                      <a href="/stores/<%= s.id %>/deals"><%= s.name %></a>&nbsp;(<%= s.count %>)&nbsp;
+                  <% end %>
+              <% end %>
+            </p>
           </li>
         </ul>
     <% end %>

@@ -5,11 +5,14 @@
         <ul class="unstyled">
           <li class="thumbnail">
             <h3><%= abc.first %></h3>
-            <% @categories.each do |c| %>
-                <% if c.start_with(abc) %>
-                    <a href="/categories/<%= c.id%>/deals"><%= c.name %></a>&nbsp;(<%= c.count %>)&nbsp;
-                <% end %>
-            <% end %>
+
+            <p style="margin: 5px 0;">
+              <% @categories.each do |c| %>
+                  <% if c.start_with(abc) %>
+                      <a href="/categories/<%= c.id %>/deals"><%= c.name %></a>&nbsp;(<%= c.count %>)&nbsp;
+                  <% end %>
+              <% end %>
+            </p>
           </li>
         </ul>
     <% end %>
