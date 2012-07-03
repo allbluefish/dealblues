@@ -4,6 +4,9 @@ class CategoriesController < ApplicationController
     @abc = %w(Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz %$)
     @category = 'active'
     @categories = Category.order('name').all
+
+    @hot_categories = Category.order("count desc").limit(15).all
+
   end
 
   def deals

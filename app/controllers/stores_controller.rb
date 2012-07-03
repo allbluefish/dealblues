@@ -8,6 +8,9 @@ class StoresController < ApplicationController
     @store = 'active'
     @stores = Store.order('name').all
 
+
+    @hot_stores = Store.order("count desc").limit(15).all
+
     respond_to do |format|
       format.html # index_old.html.erb
       format.xml { render :xml => @stores }
@@ -87,7 +90,7 @@ class StoresController < ApplicationController
 
   def deals
     @store = Store.find(params[:id])
-    @deals = @store.deals
-    render :layout => "bootstrap_no_bar"
+     @deals = @store.deals.paginate(:page => params[:page], :per_page => 10).order("pubDate desc").all
+     render :layout => "bootstrap_no_bar"
   end
 end

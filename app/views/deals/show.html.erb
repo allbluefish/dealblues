@@ -12,26 +12,66 @@
   </div>
 </div>
 <div class="row-fluid">
+  <div class="span10">
+    <div class="row">
+      <div class="span3">
+        <div class="imgbox">
+          <img src="<%= @deal.image %>" alt="" title="" style="width: 200px;height: 200px;">
+        </div>
+      </div>
+      <div class="span7">
+        <h3><a href=""><%= @deal.title %></a></h3>
 
-  <div class="span3">
-    <div class="imgbox">
-      <img src="<%= @deal.image %>" alt="" title="" style="width: 200px;height: 200px;">
+        <p><h4>Description:</h4>
+        <%= @deal.description_pure %>
+        </p>
+
+        <p><h4>Categories:</h4>
+        <% @deal.categories.each_with_index do |c, index| %>
+            <a href="/categories/<%= c.id %>/deals" title="<%= c.name %>"><%= c.name %></a>
+            <% if index +1 != @deal.categories.size %>|
+            <% end %>
+            <span class="label"><%= c.name %></span>
+        <% end %>
+        </p>
+
+        <p><h4>Stores:</h4>
+        <%= @deal.store.name %>
+        </p>
+
+        <p><i class="icon-time"></i>&nbsp;<%= time_ago_in_words(@deal.pubDate) %> ago -
+          <span style="color: #369BD7;"><%= @deal.source %></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary btn-large" href="<%= @deal.location %>"><i class="icon-shopping-cart icon-white"></i> Go Deals &raquo;</a></p>
+      </div>
     </div>
-  </div>
-  <div class="span7">
-    <h3><a href=""><%= @deal.title %></a></h3>
-
-    <p></p>
-
-    <p></p>
-
-    <p><%= @deal.description_pure %></p>
-
-    <p><a class="btn btn-primary btn-large" href="<%= @deal.location %>"><i class="icon-shopping-cart icon-white"></i> Go Deals &raquo;</a></p>
+    <section class="row">
+    <div class="span10">
+      <h3>Tabbable example</h3>
+            <p>To make tabs tabbable, create a <code>.tab-pane</code> with unique ID for every tab and wrap them in <code>.tab-content</code>.</p>
+            <div class="tabbable" style="margin-bottom: 18px;">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Latest Deals</a></li>
+                <li><a href="#tab2" data-toggle="tab"><%= @deal.store.name %></a></li>
+                <li><a href="#tab3" data-toggle="tab">Section 3</a></li>
+              </ul>
+              <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
+                <div class="tab-pane active" id="tab1">
+                  <p>I'm in Section 1.</p>
+                </div>
+                <div class="tab-pane" id="tab2">
+                  <p>Howdy, I'm in Section 2.</p>
+                </div>
+                <div class="tab-pane" id="tab3">
+                  <p>What up girl, this is Section 3.</p>
+                </div>
+              </div>
+            </div>
+    </div>
+  </section>
   </div>
 
   <div class="span2">
-    <div class="well" style="padding: 8px 0;">
+    <!-- <div class="well" style="padding: 8px 0;">
       <ul class="nav nav-list">
         <li class="nav-header">
           Hot Products
@@ -44,12 +84,12 @@
         </li>
         ...
       </ul>
-    </div>
+    </div>-->
     <div class="well" style="padding: 8px 0;">
       <ul class="nav nav-list">
         <li class="nav-header">Hot Categories</li>
         <% @categories.each do |c| %>
-            <li><a href="#" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a></li>
+            <li><a href="/categories/<%= c.id %>/deals" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a></li>
         <% end %>
         <!--<li><a href="">+more</a></li>-->
       </ul>
