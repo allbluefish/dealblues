@@ -12,6 +12,9 @@ class CategoriesController < ApplicationController
   def deals
     @category = Category.find(params[:id])
     @deals = @category.deals.paginate(:page => params[:page], :per_page => 10).order("pubDate desc").all
+
+    @hot_categories = Category.order("count desc").limit(15).all
+
     render :layout => "bootstrap_no_bar"
   end
 

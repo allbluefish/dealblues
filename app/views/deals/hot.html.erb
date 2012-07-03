@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="span2">
-    <div class="well" style="padding: 8px 0;">
+    <!--<div class="well" style="padding: 8px 0;">
       <ul class="nav nav-list">
         <li class="nav-header">
           Hot Products
@@ -13,7 +13,7 @@
         </li>
         ...
       </ul>
-    </div>
+    </div>-->
     <div class="well" style="padding: 8px 0;">
       <ul class="nav nav-list">
         <li class="nav-header">Hot Categories</li>
@@ -48,7 +48,7 @@
               <p><i class="icon-time"></i>&nbsp;<%= time_ago_in_words(d.pubDate) %> ago -
                 <span style="color: #369BD7;"><%= d.source %></span>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-primary" href="<%= d.location %>" target="_blank">View details &raquo;</a></p>
+                <a class="btn btn-primary" href="/deals/<%= d.id %>">View details &raquo;</a></p>
             </dd>
           </dl>
         </div>

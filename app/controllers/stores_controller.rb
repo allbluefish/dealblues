@@ -91,6 +91,7 @@ class StoresController < ApplicationController
   def deals
     @store = Store.find(params[:id])
      @deals = @store.deals.paginate(:page => params[:page], :per_page => 10).order("pubDate desc").all
+    @hot_stores = Store.order("count desc").limit(15).all
      render :layout => "bootstrap_no_bar"
   end
 end

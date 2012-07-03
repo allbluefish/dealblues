@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class DealsController < ApplicationController
   layout "bootstrap"
 
@@ -9,23 +10,28 @@ class DealsController < ApplicationController
   def index
     @deals = Deal.paginate(:page => params[:page], :per_page => 10).order("pubDate desc").all
     @categories = Category.order("count desc").limit(10).all
-    @stores = Store.order("id desc").limit(10).all
+    @stores = Store.order("count desc").limit(10).all
     @all = 'active'
   end
 
   def hot
     @deals = Deal.paginate(:page => params[:page], :per_page => 10).order("pubDate desc").all
     @categories = Category.order("count desc").limit(10).all
-    @stores = Store.order("id desc").limit(10).all
+    @stores = Store.order("count desc").limit(10).all
     @hot = 'active'
   end
 
   def show
     @deal = Deal.find(params[:id])
     @store = @deal.store
+
     @category = @deal.categories.first
+
     @categories = Category.order("count desc").limit(10).all
-    @stores = Store.order("id desc").limit(10).all
+    @stores = Store.order("count desc").limit(10).all
+
+    @store_deals = @store.deals.where("id!=#{@deal.id}").order("pubDate desc").limit(15).all
+
     render :layout => "bootstrap_no_bar"
   end
 

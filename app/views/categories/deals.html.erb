@@ -5,10 +5,10 @@
         <a href="/deals">All Deals</a> <span class="divider">></span>
       </li>
       <li>
-        <a href="/categories">&nbsp;Categories</a><span class="divider">></span>
+        &nbsp;<a href="/categories">Categories</a><span class="divider">></span>
       </li>
       <li>
-        <a href="#"><%= @category.name %></a>&nbsp;Products
+        <a href="/categories/<%= @category.id %>/deals"><%= @category.name %></a>&nbsp;Products
       </li>
     </ul>
   </div>
@@ -17,16 +17,11 @@
   <div class="span2">
     <div class="well" style="padding: 8px 0;">
       <ul class="nav nav-list">
-        <li class="nav-header">
-          Hot Products
-        </li>
-        <li class="active">
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Library</a>
-        </li>
-        ...
+        <li class="nav-header">Hot Categories</li>
+        <% @hot_categories.each do |c| %>
+            <li><a href="/categories/<%= c.id %>/deals" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a>
+            </li>
+        <% end %>
       </ul>
     </div>
   </div>

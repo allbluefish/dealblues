@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dealblues</title>
+  <title>Dealblues Best Deals Online - Daily Deals at dealblues</title>
   <%= stylesheet_link_tag "docs", "bootstrap.min", "pagination", "dealblues" %>
   <%= javascript_include_tag "jquery", "bootstrap.min" %>
   <%= csrf_meta_tag %>
@@ -19,11 +19,10 @@
 
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="<%= @home %>"><a href="#">Home</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
+          <li class="<%= @home %>"><a href="/">All Deals</a></li>
+          <li class="<%= @category %>"><a href="/categories">Categories</a></li>
+          <li class="<%= @store %>"><a href="/stores">Stores</a></li>
+          <!--<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b
             class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -33,13 +32,13 @@
               <li class="divider"></li>
               <li><a href="#">Separated link</a></li>
             </ul>
-          </li>
+          </li>-->
         </ul>
         <ul class="nav pull-right">
           <form class="navbar-search pull-left" action="">
             <input type="text" class="search-query span2" placeholder="Search">
           </form>
-          <li class="divider-vertical"></li>
+          <!--<li class="divider-vertical"></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b
             class="caret"></b></a>
@@ -50,7 +49,7 @@
               <li class="divider"></li>
               <li><a href="#">Separated link</a></li>
             </ul>
-          </li>
+          </li>-->
         </ul>
       </div>
       <!-- /.nav-collapse -->
@@ -72,11 +71,9 @@
   <footer class="footer">
     <p class="pull-right"><a href="#">Back to top</a></p>
 
-    <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+    <p>© 2012 dealblues.com Inc. All rights reserved.</p>
 
-    <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-
-    <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <p>Privacy Policy | Terms and Conditions</p>
   </footer>
 </div>
 </body>

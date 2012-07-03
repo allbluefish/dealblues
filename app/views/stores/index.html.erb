@@ -22,7 +22,7 @@
       <ul class="nav nav-list">
         <li class="nav-header">Hot Stores</li>
         <% @hot_stores.each do |s| %>
-            <li><a href="#" title="<%= s.name %>"><%= truncate(s.name, :length => 18, :separator => ' ') %></a></li>
+            <li><a href="/stores/<%= s.id%>/deals" title="<%= s.name %>"><%= truncate(s.name, :length => 18, :separator => ' ') %></a></li>
         <% end %>
       </ul>
     </div>

@@ -14,7 +14,7 @@ class DealNews < Spider
     description_html = Nokogiri::HTML.parse(description)
 
     # 剔除 description 中无用的字符串
-    des = description_html.inner_text.gsub(/<\/?.*?>/, '').gsub('&nbsp;', '')
+    des = description_html.inner_text.gsub(/<\/?.*?>/, '').gsub('&nbsp;', '').strip
     img = description_html.xpath('//img/@src').inner_text
 
     category = doc.css('div#breadcrumb div.main a[2]').inner_text.gsub(/\u00A0/, ' ')
