@@ -23,6 +23,7 @@
         <h3><a href=""><%= @deal.title %></a></h3>
 
         <p><h4>Description:</h4>
+        <% require 'iconv' %>
         <% converter = Iconv.new 'UTF-8//IGNORE', 'UTF-8'
            value = converter.iconv(@deal.description_pure) %>
         <%= value %>
