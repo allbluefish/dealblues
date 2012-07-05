@@ -19,7 +19,7 @@
 
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="<%= @home %>"><a href="/">All Deals</a></li>
+          <li class="<%= @today %>"><a href="/">All Deals</a></li>
           <li class="<%= @category %>"><a href="/categories">Categories</a></li>
           <li class="<%= @store %>"><a href="/stores">Stores</a></li>
           <!--<li class="dropdown">
@@ -66,8 +66,8 @@
 
     <p class="lead">every deal is so blue :)</p>
     <ul class="nav nav-tabs">
-      <li class="<%= @home %>">
-        <a href="/">Today</a>
+      <li class="<%= @today %>">
+        <a href="/deals/today">Today</a>
       </li>
       <li class="<%= @all %>"><a href="/deals">All</a></li>
       <li class="<%= @hot %>"><a href="/deals/hot">Hot</a></li>

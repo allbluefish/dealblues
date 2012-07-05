@@ -5,7 +5,7 @@ class IndexController < ApplicationController
     @categories = Category.order("count desc").limit(10).all
     @stores = Store.order("count desc").limit(10).all
 
-    @home = "active"
+    @today = "active"
 
   end
 end

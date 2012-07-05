@@ -1,6 +1,7 @@
 Dealblues::Application.routes.draw do
 
   match 'deals/hot' => 'deals#hot'
+  match 'deals/today' => 'deals#today'
 
   resources :stores
   resources :deals

@@ -3,8 +3,10 @@ class DealsController < ApplicationController
   layout "bootstrap"
 
   def today
-    today = Time.now.strftime("%Y-%m-%d %H:%M")
-
+    today = Time.now.strftime('%Y-%m-%d %H:%M:%S')
+    Date.parse(today)
+    @deals = Deal.paginate(:page => params[:page], :per_page => 10).where("pubDate > #{Date.parse(today)}").order("pubDate desc").all
+    @today = 'active'
   end
 
   def index
@@ -25,12 +27,22 @@ class DealsController < ApplicationController
     @deal = Deal.find(params[:id])
     @store = @deal.store
 
-    @category = @deal.categories.first
+    #取出总数最多的5中分类
+    @categories = @deal.categories.order("count desc").limit(5).all
 
-    @categories = Category.order("count desc").limit(10).all
-    @stores = Store.order("count desc").limit(10).all
+    @category = @categories.first
+
+    @hot_categories = Category.order("count desc").limit(10).all
+    @hot_stores = Store.order("count desc").limit(10).all
 
     @store_deals = @store.deals.where("id!=#{@deal.id}").order("pubDate desc").limit(15).all
+
+    @categories_deals = {}
+    @categories.each do |c|
+      category_deal = c.deals.where("deal_id!=#{@deal.id}").order("pubDate desc").limit(15).all
+      @categories_deals[c] = category_deal
+    end
+
 
     render :layout => "bootstrap_no_bar"
   end

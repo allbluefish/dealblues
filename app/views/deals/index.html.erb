@@ -43,7 +43,7 @@
               <img src="<%= d.image %>" alt="" title="" class="image_list">
             </dt>
             <dd class="textbox">
-              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 55, :separator => ' ') %></a></h4>
+              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 80, :separator => ' ') %></a></h4>
 
               <p><%= truncate(d.description_pure, :length => 255, :separator => ' ') %></p>
 
