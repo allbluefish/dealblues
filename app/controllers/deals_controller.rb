@@ -1,11 +1,14 @@
 # encoding: UTF-8
+
 class DealsController < ApplicationController
   layout "bootstrap"
 
+
   def today
-    today = Time.now.strftime('%Y-%m-%d %H:%M:%S')
-    Date.parse(today)
-    @deals = Deal.paginate(:page => params[:page], :per_page => 10).where("pubDate > #{Date.parse(today)}").order("pubDate desc").all
+    @categories = Category.order("count desc").limit(10).all
+    @stores = Store.order("count desc").limit(10).all
+    today = Time.now.strftime('%Y-%m-%d')
+    @deals = Deal.paginate(:page => params[:page], :per_page => 10).where("pubDate > '#{today}'").order("pubDate desc").all
     @today = 'active'
   end
 
@@ -26,6 +29,9 @@ class DealsController < ApplicationController
   def show
     @deal = Deal.find(params[:id])
     @store = @deal.store
+
+
+    $application[params[:id]] = count+1
 
     #取出总数最多的5中分类
     @categories = @deal.categories.order("count desc").limit(5).all

@@ -1,6 +1,19 @@
 require 'rufus/scheduler'
 
-scheduler = Rufus::Scheduler.start_new
+class Scheduler
+  $application = {}
+
+
+  scheduler = Rufus::Scheduler.start_new
+
+
+  scheduler.every '1m' do
+    $application.each { |key, value|
+      p key
+      p value
+    }
+  end
+
 
 #scheduler.every '20m' do
 #  respond_to "order ristretto"
@@ -13,6 +26,7 @@ scheduler = Rufus::Scheduler.start_new
 #  spiders.each { |s|
 #    p "the site #{s.site} spider date at #{Time.now.strftime("%Y-%m-%d %H:%M")}"
 #    p s.site
-  #}
+#}
 #end
 
+end
