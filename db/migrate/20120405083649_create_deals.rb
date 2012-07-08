@@ -9,6 +9,7 @@ class CreateDeals < ActiveRecord::Migration
       t.string :source
       t.string :location
       t.string :image
+      #t.integer :visit_count
       t.integer :store_id
 
       t.timestamps

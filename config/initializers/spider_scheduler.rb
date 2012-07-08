@@ -9,9 +9,12 @@ class Scheduler
 
   scheduler.every '1m' do
     $application.each { |key, value|
-      p key
-      p value
+      p "key : #{key},value : #{value}"
+      deal = Deal.find(key)
+      visit_count = deal.visit_count + value
+      deal.update_attribute('visit_count', visit_count)
     }
+    $application = {}
   end
 
 

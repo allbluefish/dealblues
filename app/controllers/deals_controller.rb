@@ -20,7 +20,7 @@ class DealsController < ApplicationController
   end
 
   def hot
-    @deals = Deal.paginate(:page => params[:page], :per_page => 10).order("pubDate desc").all
+    @deals = Deal.paginate(:page => params[:page], :per_page => 10).order("visit_count desc").all
     @categories = Category.order("count desc").limit(10).all
     @stores = Store.order("count desc").limit(10).all
     @hot = 'active'
@@ -30,7 +30,10 @@ class DealsController < ApplicationController
     @deal = Deal.find(params[:id])
     @store = @deal.store
 
-
+    count = $application[params[:id]]
+    if count.nil?
+      count = 0
+    end
     $application[params[:id]] = count+1
 
     #取出总数最多的5中分类

@@ -7,7 +7,7 @@ class DealOfDay < Spider
     title = item.xpath('title').inner_text
     title_split = title.split('–')
 
-    store_name = title_split[0].strip.gsub('’'," ' ")
+    store_name = title_split[0].strip.gsub('’', " ' ")
     title_name = title_split[1].strip
     store = get_store(store_name)
 
@@ -19,8 +19,8 @@ class DealOfDay < Spider
     pub_date = item.xpath('pubDate').inner_text
     date = Time.parse(pub_date, '%Y-%m-%d %H:%M:%S')
 
-    deal = Deal.new(:title => title_name, :description_pure => des, :pubDate => date,
-                    :location => link.strip, :image => "http://dealofday.com#{img}", :source => site)
+    deal = Deal.new(:title => title_name, :description_pure => des, :pubDate => date, :location => link.strip,
+                    :image => "http://dealofday.com#{img}", :source => site, :visit_count => 0)
 
     get_categories(deal, item)
 

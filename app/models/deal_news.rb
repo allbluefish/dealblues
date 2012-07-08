@@ -23,7 +23,7 @@ class DealNews < Spider
     date = Time.parse(pub_date, '%Y-%m-%d %H:%M:%S')
 
     deal = Deal.new(:title => title, :description_pure => des, :pubDate => date,
-                    :location => link.strip, :image => img, :source => site)
+                    :location => link.strip, :image => img, :source => site, :visit_count => 0)
 
     get_categories(deal, category)
 

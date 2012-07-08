@@ -22,7 +22,7 @@ class DealTaker < Spider
       link = item.xpath('link').inner_text.split('?')[0]
 
       deal = Deal.new(:title => title, :description_pure => description_no_html.strip, :description => description,
-                      :pubDate => date, :location => link.strip, :image => img, :source => site)
+                      :pubDate => date, :location => link.strip, :image => img, :source => site, :visit_count => 0)
 
       get_categories(deal, item)
 

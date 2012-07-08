@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413120200) do
+ActiveRecord::Schema.define(:version => 20120708065925) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120413120200) do
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "visit_count"
   end
 
   add_index "deals", ["store_id"], :name => "index_deals_on_store_id"
@@ -50,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20120413120200) do
     t.string   "rss_url"
     t.integer  "today_count"
     t.integer  "all_count"
-    t.integer  "status"
     t.string   "type"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
