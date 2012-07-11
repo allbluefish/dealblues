@@ -7,7 +7,7 @@ class Scheduler
   scheduler = Rufus::Scheduler.start_new
 
 
-  scheduler.every '1m' do
+  scheduler.every '3h' do
     $application.each { |key, value|
       p "key : #{key},value : #{value}"
       deal = Deal.find(key)
