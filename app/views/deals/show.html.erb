@@ -5,9 +5,11 @@
         <a href="/deals">All Deals</a> <span class="divider">></span>
       </li>
       <li>
-        <a href="/stores/<%= @store.id %>/deals"><%= @store.name %></a>&nbsp;Product<span class="divider">></span>
+        <a href="/stores/<%= @store.id %>/deals"><%= @store.name %></a>&nbsp;Product
       </li>
-      <li><a href="/categories/<%= @category.id %>/deals"><%= @category.name %></a></li>
+      <% if !@category.nil? %>
+          <span class="divider">></span><li><a href="/categories/<%= @category.id %>/deals"><%= @category.name %></a></li>
+      <% end %>
     </ul>
   </div>
 </div>

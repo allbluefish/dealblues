@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="span12">
+    <ul class="breadcrumb">
+      <li>
+        <a href="/deals">All Deals</a> <span class="divider">></span>
+      </li>
+      <li>
+        Search Words<span class="divider">></span>
+      </li>
+      <li>
+        <span style="color: #369BD7;"><%= @key_word%></span>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span2">
+    <div class="well" style="padding: 8px 0;">
+    </div>
+  </div>
+  <div class="span10 top">
+    <% @deals.each do |d| %>
+        <div class="thumbnail" style="margin-bottom: 8px;">
+          <dl class="dl-horizontal">
+            <dt class="imgbox">
+              <img src="<%= d.image %>" alt="" title="" class="image_list">
+            </dt>
+            <dd class="textbox">
+              <h4><a href="/deals/<%= d.id %>"><%= truncate(d.title, :length => 55, :separator => ' ') %></a></h4>
+
+              <p><%= truncate(d.description_pure, :length => 255, :separator => ' ') %></p>
+
+              <p><i class="icon-time"></i>&nbsp;<%= time_ago_in_words(d.pubDate) %> ago -
+                <span style="color: #369BD7;"><%= d.source %></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-primary" href="<%= d.location %>" target="_blank">View details &raquo;</a></p>
+            </dd>
+          </dl>
+        </div>
+    <% end %>
+    <%= will_paginate @deals, :class => 'digg_pagination pull-right' %>
+  </div>
+</div>
