@@ -60,7 +60,8 @@ class DealsController < ApplicationController
     @key_word = params[:key_word]
     @deals = Deal.paginate(:page => params[:page], :per_page => 10).
         where("description_pure like '%#{@key_word}%'").order("pubDate desc").all
-
+    @hot_categories = Category.order("count desc").limit(10).all
+    @hot_stores = Store.order("count desc").limit(10).all
     render :layout => "bootstrap_no_bar"
   end
 

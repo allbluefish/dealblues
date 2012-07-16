@@ -16,6 +16,21 @@
 <div class="row-fluid">
   <div class="span2">
     <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">Hot Categories</li>
+        <% @hot_categories.each do |c| %>
+            <li><a href="/categories/<%= c.id %>/deals" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="well" style="padding: 8px 0;">
+      <ul class="nav nav-list">
+        <li class="nav-header">Hot Stores</li>
+        <% @hot_stores.each do |s| %>
+            <li><a href="#" title="<%= s.name %>"><%= truncate(s.name, :length => 18, :separator => ' ') %></a></li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <div class="span10 top">
