@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag "docs", "bootstrap.min", "pagination", "dealblues" %>
   <%= javascript_include_tag "jquery", "bootstrap.min", "googleanalytics" %>
   <%= csrf_meta_tag %>
+  <meta name="description" content="<%= yield(:meta) %>"/>
 </head>
 <body>
 <div class="navbar navbar-fixed-top">

@@ -1,4 +1,5 @@
-<% title  "Dealblues Best Deals Online - Daily Deals at dealblues | #{@deal.title}" %>
+<% title  "Dealblues Best Deals Online - Daily Deals at dealblues | #{truncate(@deal.title, :length => 25, :separator => ' ')}" %>
+<% meta  "Dealblues Best Deals Online - Daily Deals at dealblues | #{truncate(@deal.title, :length => 25, :separator => ' ')}" %>
 <div class="row">
   <div class="span12">
     <ul class="breadcrumb">

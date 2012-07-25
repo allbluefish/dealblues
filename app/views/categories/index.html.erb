@@ -1,30 +1,32 @@
-<div class="row-fluid">
-  <div class="span10 top">
-    <h2>All Categories</h2>
-    <% @abc.each do |abc| %>
-        <ul class="unstyled">
-          <li class="thumbnail">
-            <h3><%= abc.first %></h3>
+<% title "Dealblues Best Deals Online - Daily Deals at dealblues | new deals | sales | coupons | all categories" %>
+<% meta "Dealblues Best Deals Online - Daily Deals at dealblues |  new deals | sales | coupons |all categories" %>
+<div class="span10 top">
+  <h2>All Categories</h2>
+  <% @abc.each do |abc| %>
+      <ul class="unstyled">
+        <li class="thumbnail">
+          <h3><%= abc.first %></h3>
 
-            <p style="margin: 5px 0;">
-              <% @categories.each do |c| %>
-                  <% if c.start_with(abc) %>
-                      <a href="/categories/<%= c.id %>/deals"><%= c.name %></a>&nbsp;(<%= c.count %>)&nbsp;
-                  <% end %>
-              <% end %>
-            </p>
-          </li>
-        </ul>
-    <% end %>
-  </div>
-  <div class="span2">
-    <div class="well" style="padding: 8px 0;">
-      <ul class="nav nav-list">
-        <li class="nav-header">Hot Categories</li>
-        <% @hot_categories.each do |c| %>
-            <li><a href="/categories/<%= c.id %>/deals" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a></li>
-        <% end %>
+          <p style="margin: 5px 0;">
+            <% @categories.each do |c| %>
+                <% if c.start_with(abc) %>
+                    <a href="/categories/<%= c.id %>/deals"><%= c.name %></a>&nbsp;(<%= c.count %>)&nbsp;
+                <% end %>
+            <% end %>
+          </p>
+        </li>
       </ul>
-    </div>
+  <% end %>
+</div>
+<div class="span2">
+  <div class="well" style="padding: 8px 0;">
+    <ul class="nav nav-list">
+      <li class="nav-header">Hot Categories</li>
+      <% @hot_categories.each do |c| %>
+          <li><a href="/categories/<%= c.id %>/deals" title="<%= c.name %>"><%= truncate(c.name, :length => 18, :separator => ' ') %></a>
+          </li>
+      <% end %>
+    </ul>
   </div>
+</div>
 </div>
