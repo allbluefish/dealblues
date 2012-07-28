@@ -28,7 +28,7 @@ class Scheduler
   end
 
   month = 60 * 60 * 24 * 30
-  scheduler.every '2m' do
+  scheduler.every '24h' do
     now = Time.now
     before = (now + month).strftime('%Y-%m-%d')
     deals = Deal.where("pubDate < '#{before}'").order("pubDate desc").all
