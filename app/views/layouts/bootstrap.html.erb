@@ -62,34 +62,40 @@
 </div>
 
 <div class="container">
-  <header class="jumbotron subhead" id="overview">
-    <h1>DealBlues</h1>
+  <div class="row">
+    <header class="jumbotron subhead" id="overview">
+      <div class="span4">
+        <h1>DealBlues</h1>
 
-    <p class="lead">every deal is so blue :)</p>
-    <ul class="nav nav-tabs">
-      <li class="<%= @today %>">
-        <a href="/deals/today">Today</a>
-      </li>
-      <li class="<%= @all %>"><a href="/deals">All</a></li>
-      <li class="<%= @hot %>"><a href="/deals/hot">Hot</a></li>
-      <li class="<%= @category %>"><a href="/categories">Category</a></li>
-      <li class="<%= @store %>"><a href="/stores">Store</a></li>
-      <!--<li class="dropdown">
-        <a class="dropdown-toggle"
-           data-toggle="dropdown"
-           href="#">
-          Dropdown
-          <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          &lt;!&ndash; links &ndash;&gt;
+        <p class="lead">every deal is so blue :)</p>
+      </div>
+      <div class="span8">
+
+      </div>
+      <div class="span12 top">
+        <ul class="nav nav-tabs">
+          <li class="<%= @today %>">
+            <a href="/deals/today">Today</a>
+          </li>
+          <li class="<%= @all %>"><a href="/deals">All</a></li>
+          <li class="<%= @hot %>"><a href="/deals/hot">Hot</a></li>
+          <li class="<%= @category %>"><a href="/categories">Category</a></li>
+          <li class="<%= @store %>"><a href="/stores">Store</a></li>
+          <!--<li class="dropdown">
+            <a class="dropdown-toggle"
+               data-toggle="dropdown"
+               href="#">
+              Dropdown
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              &lt;!&ndash; links &ndash;&gt;
+            </ul>
+          </li>-->
         </ul>
-      </li>-->
-    </ul>
-
-
-  </header>
-
+      </div>
+    </header>
+  </div>
   <%= yield %>
   <footer class="footer">
     <p class="pull-right"><a href="#">Back to top</a></p>
@@ -100,6 +106,7 @@
 
     <!--<p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>-->
     <p>© 2012 dealblues.com Inc. All rights reserved.</p>
+
     <p>Privacy Policy | Terms and Conditions</p>
   </footer>
 </div>
