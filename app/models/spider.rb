@@ -27,10 +27,10 @@ class Spider < ActiveRecord::Base
     items = get_node(doc, '//item')
     deals = Deal.order("pubDate DESC").find_all_by_source(site)
     count = deals.count
+    last_time = deals.first.pubDate if count !=0
 
     items.each do |item|
       if count != 0
-        last_time = deals.first.pubDate
         pub_date = Time.parse(item.xpath('pubDate').inner_text)
         save_deal(item) if pub_date > last_time
       else
