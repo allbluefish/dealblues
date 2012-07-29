@@ -20,10 +20,15 @@ class DealNews < Spider
     category = doc.css('div#breadcrumb div.main a[2]').inner_text.gsub(/\u00A0/, ' ')
 
     pub_date = item.xpath('pubDate').inner_text
-    date = Time.parse(pub_date, '%Y-%m-%d %H:%M:%S')
+    #date = Time.parse(pub_date, '%Y-%m-%d %H:%M:%S')
+    date = Time.parse(pub_date)
+
+    #p "网页上显示时间为：#{date}"
 
     deal = Deal.new(:title => title, :description_pure => des, :pubDate => date,
                     :location => link.strip, :image => img, :source => site, :visit_count => 0)
+
+    #p "数据库所存时间为：#{deal.pubDate}"
 
     get_categories(deal, category)
 
