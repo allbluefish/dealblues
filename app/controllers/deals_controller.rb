@@ -27,18 +27,8 @@ class DealsController < ApplicationController
   end
 
   def show
-
-
     @deal = Deal.find(params[:id])
     @store = @deal.store
-
-    pub_date = 'Sun, 29 Jul 2012 01:14:03 -0400'
-    d1 = p Time.parse(pub_date, '%Y-%m-%d %H:%M:%S')
-
-    p @deal.pubDate
-
-    p d1 - @deal.pubDate
-
 
     count = $application[params[:id]]
     if count.nil?
